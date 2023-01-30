@@ -4,7 +4,7 @@
 Denne GitHub repository indeholder filerne til en hjemmeside, hvor butikker kan oprette sig og sælge deres genbrugstøj til forbrugere. Hjemmesiden er designet med en enkel og brugervenlig tilgang, og er opstået som en del af et skole SO-projekt med fokus på at støtte bæredygtighed og miljøet. Download filerne til hjemmesiden for at opleve en nem og effektiv måde at købe genbrugstøj og støtte en bæredygtig fremtid.
 
 
-## Forhåndsvisning
+## Download
 
 Følg disse trin for at sætte hjemmesiden op med XAMPP og HTDOCS mappen
 
@@ -22,5 +22,5 @@ Følg disse trin for at sætte hjemmesiden op med XAMPP og HTDOCS mappen
 
 8.  Gå til "[http://localhost/[mappenavn]](http://localhost/%5Bmappenavn%5D)" for at se hjemmesiden i action. Bemærk: Mappenavnet i URL'en skal være det samme som navnet på mappen i HTDOCS."
 
-## Showcase
+## Forhåndsvisning
 
