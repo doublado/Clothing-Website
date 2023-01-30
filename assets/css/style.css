@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+body {
+	color: #000;
+    background-color: #516070 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.bg-dark {
+    background-color: #344D67 !important;
+}
+
+.bg-section {
+    background-color: #344D67 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.navbar {
+    font-size: 1rem;
+    padding: 0px;
+}
+
+.nav-item {
+	margin: 7px 0px 7px;
+}
+
+.nav-item.active {
+    border-bottom: #00a797 solid 2px;
+}
+
+.nav-link {
+    color: #fff !important;
+    transition: ease-in-out 0.2s !important;
+}
+
+.nav-link:hover {
+    color: #00a797 !important;
+    transition: ease-in-out 0.3s;
+}
+
+.nav-item.active > .nav-link {
+    color: #00a797 !important;
+}
+
+.nav-link.active {
+    color: #00a797 !important;
+}
+
+.btn-primary {
+    border-color: #00a797 !important;
+    background-color: #00a797 !important;
+    color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+    user-select: none;
+    transition: ease-in-out 0.2s !important;
+}
+
+.btn-primary:hover {
+    border-color: #00e6cf !important;
+    background-color: #00e6cf !important;
+    color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+    user-select: none;
+    transition: ease-in-out 0.3s;
+}
+
+.btn-outline-primary {
+    border-color: #00a797 !important;
+    color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    user-select: none;
+    transition: ease-in-out 0.2s !important;
+}
+
+.btn-outline-primary:hover {
+    border-color: #00e6cf !important;
+    background-color: #00e6cf !important;
+    color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    user-select: none;
+    transition: ease-in-out 0.3s;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.special-card {
+    background-color: #344D67 !important;
+    transition: ease-in-out 0.2s !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.special-card:hover {
+    background-color: #2e435a !important;
+    transition: ease-in-out 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

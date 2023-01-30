@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>Restyled | Hjem</title>
+	<title>Restyled | Login eller opret bruger</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -21,7 +21,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a class="nav-link" href="index.php">Hjem</a>
 					</li>
 					<li class="nav-item">
@@ -39,37 +39,28 @@
 			</div>
 		</div>
 	</nav>
-    <section style="margin-top: 105px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 offset-xl-2">
-                    <center>
-                        <img class="img-fluid" src="assets/img/logo.png" alt="pagelogo" style="height: 200px; width: auto;" draggable="false">
-						<p style="font-size: 1.5rem; font-weight: 600; color: #00a797;">Genbrug, der aldrig går af mode</p>
-						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;">Find butik</button>
-                    </center>
-                </div>
-			</div>
-		</div>
-	</section>
-	<section style="margin-top: 50px;">
+	<section class="center">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-					<div class="card bg-section text-white" style="height: 200px;">
-						<div class="card-body text-center">
-							<h5 class="card-title" style="font-weight: 600;">Nemt og hurtigt</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nunc.</p>
-						</div>
-					</div>
+                    <div class="card flex-fill special-card text-center">
+                        <div class="card-body d-flex flex-column">
+                            <center>
+                                <img src="assets/img/login.png" alt="price" style="width: 150px; height: 150px; margin-bottom: 20px;" draggable="false">
+                            </center>
+                            <h5 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Login</h5>
+                        </div>
+                    </div>
 				</div>
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-					<div class="card bg-section text-white" style="height: 200px;">
-						<div class="card-body text-center">
-							<h5 class="card-title" style="font-weight: 600;">Bæredygtigt</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nunc.</p>
-						</div>
-					</div>
+                    <div class="card flex-fill special-card text-center">
+                        <div class="card-body d-flex flex-column">
+                            <center>
+                                <img src="assets/img/register.png" alt="price" style="width: 150px; height: 150px; margin-bottom: 20px;" draggable="false">
+                            </center>
+                            <h5 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Opret din bruger</h5>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
