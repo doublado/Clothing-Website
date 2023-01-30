@@ -1,7 +1,7 @@
 # Genbrugstøj Hjemmeside
 ## Beskrivelse
 
-Denne GitHub repository indeholder filerne til en hjemmeside, hvor butikker kan oprette sig og sælge deres genbrugstøj til forbrugere. Hjemmesiden er designet med en enkel og brugervenlig tilgang, og er opstået som en del af et skole SO-projekt med fokus på at støtte bæredygtighed og miljøet. Download filerne til hjemmesiden for at opleve en nem og effektiv måde at købe genbrugstøj og støtte en bæredygtig fremtid.
+Denne GitHub repository indeholder filerne til en hjemmeside, hvor butikker kan oprette sig og sælge deres genbrugstøj til forbrugere. Hjemmesiden er designet med en enkel og brugervenlig tilgang, og er opstået som en del af et skole SO-projekt med fokus på at støtte bæredygtighed og miljøet. Hjemmesiden er kun en ideskabning og ikke en 100% funktionel hjemmeside. Download filerne til hjemmesiden for at opleve en nem og effektiv måde at købe genbrugstøj og støtte en bæredygtig fremtid.
 
 
 ## Download
