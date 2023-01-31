@@ -85,12 +85,12 @@ body {
 }
 
 .center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 105px;
+    margin-bottom: 105px;
+    width: 50%;
 }
 
 .special-card {
@@ -103,4 +103,68 @@ body {
     background-color: #2e435a !important;
     transition: ease-in-out 0.3s;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dou-input {
+    background-color: #516070 !important;
+    border-color: #516070 !important;
+    color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+    user-select: none;
+}
+
+.dou-input:focus {
+    background-color: #516070 !important;
+    border-color: #00a797 !important;
+    color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+    user-select: none;
+}
+
+.dou-input::placeholder {
+    color: lightgray !important;
+}
+
+.dou-input:-ms-input-placeholder {
+    color: lightgray !important;
+}
+
+.dou-input::-ms-input-placeholder {
+    color: lightgray !important;
+}
+
+.login-text {
+    float: right; 
+    margin-top: 5px; 
+    color: lightgrey; 
+    text-decoration: none;
+    transition: ease-in-out 0.2s !important;
+}
+
+.login-text:hover {
+    color: #00a797;
+    transition: ease-in-out 0.3s;
+}
+
+.breadcrumb{
+	padding:15px;
+    background-color: #344D67 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.breadcrumb-link {
+    color: #fff;
+    transition: ease-in-out 0.3s !important;
+    text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+    color: #00a797;
+    transition: ease-in-out 0.3s;
+}
+
+.breadcrumb-link-muted {
+    color: lightgrey !important;
 }

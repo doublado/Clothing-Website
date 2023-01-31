@@ -1,3 +1,14 @@
+<?php
+	# Enabling error display
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+	session_start();
+
+    require __DIR__ . "/assets/lib/crud.php";
+    require __DIR__ . "/assets/lib/functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +43,13 @@
 					</li>
 				</ul>
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item" style="margin-right: 5px;">
-						<a class="btn btn-outline-primary" href="options.php">Login eller opret bruger</a>
-					</li>
+				<?php
+                    if (is_loggedin()) {
+						echo '<a class="btn btn-outline-primary" href="logout.php">Log ud</a>';
+					} else {
+						echo '<a class="btn btn-outline-primary" href="login.php">Login</a>';
+					}
+				?>
 				</ul>
 			</div>
 		</div>

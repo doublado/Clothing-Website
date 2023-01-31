@@ -1,3 +1,28 @@
+<?php
+	# Enabling error display
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+	session_start();
+
+    require __DIR__ . "/assets/lib/crud.php";
+    require __DIR__ . "/assets/lib/functions.php";
+
+    // Get the store ID from the URL
+    $store_id = $_GET['id'];
+
+    // Get the store from the database
+    $stmt = $pdo->prepare("SELECT * FROM stores WHERE id = :id");
+    $stmt->execute(['id' => $store_id]);
+    $store = $stmt->fetch();
+
+    // Get general store information
+    $store_name = $store['name'];
+    $store_email = $store['email'];
+    $store_description = $store['description'];
+    $store_created = $store['created_at'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +35,10 @@
     <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>Restyled | Login eller opret bruger</title>
+	<title>Restyled | Butikker</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" height="55" width="auto" alt="logo" draggable="false"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +49,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="index.php">Hjem</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
                         <a class="nav-link" href="stores.php">Butikker</a>
                     </li>
                     <li class="nav-item">
@@ -32,37 +57,33 @@
 					</li>
 				</ul>
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item" style="margin-right: 5px;">
-						<a class="btn btn-outline-primary" href="options.php">Login eller opret bruger</a>
-					</li>
+				<?php
+                    if (is_loggedin()) {
+						echo '<a class="btn btn-outline-primary" href="logout.php">Log ud</a>';
+					} else {
+						echo '<a class="btn btn-outline-primary" href="login.php">Login</a>';
+					}
+				?>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<section class="center">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="card flex-fill special-card text-center">
-                        <div class="card-body d-flex flex-column">
-                            <center>
-                                <img src="assets/img/login.png" alt="price" style="width: 150px; height: 150px; margin-bottom: 20px;" draggable="false">
-                            </center>
-                            <h5 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Login</h5>
-                        </div>
-                    </div>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="card flex-fill special-card text-center">
-                        <div class="card-body d-flex flex-column">
-                            <center>
-                                <img src="assets/img/register.png" alt="price" style="width: 150px; height: 150px; margin-bottom: 20px;" draggable="false">
-                            </center>
-                            <h5 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Opret din bruger</h5>
-                        </div>
-                    </div>
-				</div>
-			</div>
+	<!-- Create a grid of cards with the stores -->
+	<section style="margin-top: 105px;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 offset-xl-2">
+                    <h1 style="font-weight: 800; font-size: 2rem; color: #fff;"><?php echo $store_name; ?></h1>
+                </div>
+            </div>
+            <div class="row text-center" style="margin-top: 25px;">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo $panel_url?>/cloudpanel/panel">Butikker</a></li>
+                        <li class="breadcrumb-item active breadcrumb-link-muted"><?php echo $store_name; ?></li>
+                    </ol>
+                </div>
+            </div>
 		</div>
 	</section>
 	<link rel="stylesheet" type="text/css" href="assets/css/footer.css">

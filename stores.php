@@ -1,3 +1,14 @@
+<?php
+	# Enabling error display
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+	session_start();
+
+    require __DIR__ . "/assets/lib/crud.php";
+    require __DIR__ . "/assets/lib/functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,13 +43,105 @@
 					</li>
 				</ul>
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item" style="margin-right: 5px;">
-						<a class="btn btn-outline-primary" href="options.php">Login eller opret bruger</a>
-					</li>
+				<?php
+                    if (is_loggedin()) {
+						echo '<a class="btn btn-outline-primary" href="logout.php">Log ud</a>';
+					} else {
+						echo '<a class="btn btn-outline-primary" href="login.php">Login</a>';
+					}
+				?>
 				</ul>
 			</div>
 		</div>
 	</nav>
+	<!-- Create a grid of cards with the stores -->
+	<section style="margin-top: 105px;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 offset-xl-2">
+                    <h2 style="font-weight: 800; font-size: 2rem; color: #fff;">Butikker</h2>
+                </div>
+            </div>
+			<div class="row text-center" style="margin-top: 25px;">
+				<!-- <div class="col-xl-4" style="margin-bottom: 25px;">
+					<a style="text-decoration: none; color: inherit;" href="">
+						<div class="card flex-fill bg-section special-card">
+							<div class="card-body d-flex flex-column">
+								<center>
+									<img src="../assets/img/rklogo.png" alt="logo" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">
+								</center>
+								<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Røde Kors</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-xl-4" style="margin-bottom: 25px;">
+					<a style="text-decoration: none; color: inherit;" href="">
+						<div class="card flex-fill bg-section special-card">
+							<div class="card-body d-flex flex-column">
+								<center>
+									<img src="../assets/img/add.png" alt="addicon" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">
+								</center>
+								<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>
+							</div>
+						</div>
+					</a>
+				</div> -->
+
+				<?php
+					$stmt = $pdo->prepare("SELECT * FROM stores");
+					$stmt->execute();
+					$stores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if ($stmt->rowCount() > 0) {
+						if (is_loggedin()) {
+							echo '<div class="col-xl-4" style="margin-bottom: 25px;">';
+							echo '<a style="text-decoration: none; color: inherit;" href="createstore.php">';
+							echo '<div class="card flex-fill bg-section special-card">';
+							echo '<div class="card-body d-flex flex-column">';
+							echo '<center>';
+							echo '<img src="../assets/img/add.png" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+							echo '</center>';
+							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>';
+							echo '</div>';
+							echo '</div>';
+							echo '</a>';
+							echo '</div>';
+						}
+						foreach ($stores as $row) {
+							echo '<div class="col-xl-4" style="margin-bottom: 25px;">';
+                            echo '<a style="text-decoration: none; color: inherit;" href="store.php?id='.$row['id'].'">';
+                            echo '<div class="card flex-fill bg-section special-card">';
+                            echo '<div class="card-body d-flex flex-column">';
+                            echo '<center>';
+                            echo '<img src="../assets/img/stores/'.$row['image'].'" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+                            echo '</center>';
+                            echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">'.$row['name'].'</h4>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                            echo '</div>';
+						}
+					} else {
+						if (is_loggedin()) {
+							echo '<div class="col-xl-4" style="margin-bottom: 25px;">';
+							echo '<a style="text-decoration: none; color: inherit;" href="createstore.php">';
+							echo '<div class="card flex-fill bg-section special-card">';
+							echo '<div class="card-body d-flex flex-column">';
+							echo '<center>';
+							echo '<img src="../assets/img/add.png" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+							echo '</center>';
+							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>';
+							echo '</div>';
+							echo '</div>';
+							echo '</a>';
+							echo '</div>';
+						}
+					}
+				?>
+			</div>
+		</div>
+	</section>
 	<link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <footer>
         <div class="container">

@@ -5,6 +5,7 @@
 
 	session_start();
 
+    require __DIR__ . "/assets/lib/crud.php";
     require __DIR__ . "/assets/lib/functions.php";
 ?>
 
@@ -20,7 +21,7 @@
     <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>Restyled | Hjem</title>
+	<title>Restyled | Login</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -31,7 +32,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a class="nav-link" href="index.php">Hjem</a>
 					</li>
 					<li class="nav-item">
@@ -53,42 +54,49 @@
 			</div>
 		</div>
 	</nav>
-    <section style="margin-top: 105px;">
+	<section class="center">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 offset-xl-2">
-                    <center>
-                        <img class="img-fluid" src="assets/img/logo.png" alt="pagelogo" style="height: 200px; width: auto;" draggable="false">
-						<p style="font-size: 1.5rem; font-weight: 600; color: #00a797;">Genbrug, der aldrig går af mode</p>
-						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;">Find butik</button>
-                    </center>
-                </div>
-			</div>
-		</div>
-	</section>
-	<section style="margin-top: 50px; margin-bottom: 50px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-					<div class="card bg-section text-white" style="height: 200px;">
-						<div class="card-body text-center">
-							<h5 class="card-title" style="font-weight: 600;">Nemt og hurtigt</h5>
-							<p class="card-text">Vores hjemmeside er nem og hurtig på grund af sin brugervenlige design og en optimal brugeroplevelse. Navigationen er enkel og intuitiv, så du hurtigt kan finde det, du leder efter. Det er også hurtigt at indlæse siderne, så du sparer tid og kan fokusere på det, der er vigtigst for dig. Alt i alt er vores hjemmeside en nem, hurtig og effektiv løsning, der er designet med din tid og dine behov i tankerne.</p>
+				<div class="col-md-12">
+					<div class="card bg-section text-white">
+						<div class="card-header">
+							<h3 class="card-title">Login</h3>
 						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-					<div class="card bg-section text-white" style="height: 200px;">
-						<div class="card-body text-center">
-							<h5 class="card-title" style="font-weight: 600;">Bæredygtigt</h5>
-							<p class="card-text">Vi går op i bæredygtighed, fordi vi er opmærksomme på den påvirkning, vores handlinger har på klimaet. Vi tror på, at vi alle kan gøre en forskel og bidrage til en grønnere fremtid. Derfor tager vi ansvar og arbejder aktivt på at reducere vores miljøpåvirkning, så vi kan bidrage til en mere bæredygtig verden for fremtidige generationer. </p>
+						<div class="card-body login">
+							<form action="loginfunc.php" method="post">
+								<div class="form-group" style="margin-bottom: 10px;">
+									<label for="username">Brugernavn</label>
+									<input class="form-control dou-input" type="text" name="username" class="form-control" id="username" placeholder="Brugernavn" required>
+								</div>
+								<div class="form-group" style="margin-bottom: 10px;">
+									<label for="password">Adgangskode</label>
+									<input class="form-control dou-input" type="password" name="password" class="form-control" id="password" placeholder="Adgangskode" required>
+								</div>
+								<button type="submit" class="btn btn-primary">Login</button>
+								<a class="login-text" href="register.php">Opret konto</a>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<br>
+	<script>
+        document.querySelector(".login form").onsubmit = function(event) {
+            event.preventDefault();
+            var form_data = new FormData(document.querySelector(".login form"));
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", document.querySelector(".login form").action, true);
+            xhr.onload = function () {
+                if (this.responseText.toLowerCase().indexOf("success") !== -1) {
+                    window.location.href = "index.php";
+                } else {
+                    document.querySelector(".errormessage").innerHTML = this.responseText;
+                }
+            };
+            xhr.send(form_data);
+        };
+    </script>
 	<link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <footer>
         <div class="container">
