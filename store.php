@@ -21,6 +21,7 @@
     $store_email = $store['email'];
     $store_description = $store['description'];
     $store_created = $store['created_at'];
+    $storeid = $store['storeid'];
 ?>
 
 <!DOCTYPE html>
@@ -77,13 +78,57 @@
                 </div>
             </div>
             <div class="row text-center" style="margin-top: 25px;">
-                <div class="col-lg-12">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="<?php echo $panel_url?>/cloudpanel/panel">Butikker</a></li>
-                        <li class="breadcrumb-item active breadcrumb-link-muted"><?php echo $store_name; ?></li>
-                    </ol>
-                </div>
-            </div>
+                <?php
+					$stmt = $pdo->prepare("SELECT * FROM clothing WHERE storeid = :storeid");
+                    $stmt->execute(['storeid' => $storeid]);
+                    $clothing = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if ($stmt->rowCount() > 0) {
+						if (is_loggedin()) {
+							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
+							echo '<a style="text-decoration: none; color: inherit;" href="createstore.php">';
+							echo '<div class="card flex-fill bg-section special-card">';
+							echo '<div class="card-body d-flex flex-column">';
+							echo '<center>';
+							echo '<img src="../assets/img/add.png" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+							echo '</center>';
+							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>';
+							echo '</div>';
+							echo '</div>';
+							echo '</a>';
+							echo '</div>';
+						}
+						foreach ($stores as $row) {
+							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
+                            echo '<a style="text-decoration: none; color: inherit;" href="store.php?id='.$row['id'].'">';
+                            echo '<div class="card flex-fill bg-section special-card">';
+                            echo '<div class="card-body d-flex flex-column">';
+                            echo '<center>';
+                            echo '<img src="../assets/img/stores/'.$row['image'].'" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+                            echo '</center>';
+                            echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">'.$row['name'].'</h4>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                            echo '</div>';
+						}
+					} else {
+						if (is_loggedin()) {
+							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
+							echo '<a style="text-decoration: none; color: inherit;" href="createstore.php">';
+							echo '<div class="card flex-fill bg-section special-card">';
+							echo '<div class="card-body d-flex flex-column">';
+							echo '<center>';
+							echo '<img src="../assets/img/add.png" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+							echo '</center>';
+							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>';
+							echo '</div>';
+							echo '</div>';
+							echo '</a>';
+							echo '</div>';
+						}
+					}
+				?>
 		</div>
 	</section>
 	<link rel="stylesheet" type="text/css" href="assets/css/footer.css">
