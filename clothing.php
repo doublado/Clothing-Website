@@ -54,6 +54,40 @@
 			</div>
 		</div>
 	</nav>
+	<section style="margin-top: 105px;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 offset-xl-2">
+                    <h1 style="font-weight: 800; font-size: 2rem; color: #fff;">Produkter</h1>
+                </div>
+            </div>
+            <div class="row text-center" style="margin-top: 25px;">
+                <?php
+					$stmt = $pdo->prepare("SELECT * FROM clothing ORDER BY id DESC");
+					$stmt->execute();
+					$clothing = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+					if ($stmt->rowCount() > 0) {
+						foreach ($clothing as $row) {
+							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
+                            echo '<a style="text-decoration: none; color: inherit;">';
+                            echo '<div class="card flex-fill bg-section">';
+                            echo '<div class="card-body d-flex flex-column">';
+                            echo '<center>';
+                            echo '<img src="../assets/img/clothing/'.$row['image'].'" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+                            echo '</center>';
+                            echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">'.$row['title'].'</h4>';
+							echo '<hr>';
+							echo '<p class="card-text" style="font-size: 16px; font-weight: 500; color: #fff;">Type: '.$row['type'].'<br>Pris: '.$row['price'].' kr.</p>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                            echo '</div>';
+						}
+					}
+				?>
+		</div>
+	</section>
 	<link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <footer>
         <div class="container">
