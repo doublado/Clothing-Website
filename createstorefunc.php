@@ -18,6 +18,7 @@
     $email = $_POST['email'];
     $description = $_POST['description'];
     $created = date("Y-m-d H:i:s");
+    $ownerid = $_SESSION['userid'];
 
     // Check for xss and sql injection attacks
     $name = htmlspecialchars($name);
@@ -43,13 +44,14 @@
             $allowtypes = array('jpg', 'png', 'jpeg');
 
             if (in_array($filetype, $allowtypes)) {
-                $stmt = $pdo->prepare("INSERT INTO stores (storeid, name, email, description, image, created_at) VALUES (:storeid, :name, :email, :description, :image, :created)");
+                $stmt = $pdo->prepare("INSERT INTO stores (storeid, name, email, description, image, created_at, ownerid) VALUES (:storeid, :name, :email, :description, :image, :created, :ownerid)");
                 $stmt->bindParam(':storeid', $storeid);
                 $stmt->bindParam(':name', $name);
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':description', $description);
                 $stmt->bindParam(':image', $uploadname);
                 $stmt->bindParam(':created', $created);
+                $stmt->bindParam(':ownerid', $ownerid);
                 $stmt->execute();
 
                 // Save image to the assets/img/stores folder

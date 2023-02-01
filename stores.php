@@ -63,31 +63,6 @@
                 </div>
             </div>
 			<div class="row text-center" style="margin-top: 25px;">
-				<!-- <div class="col-xl-4" style="margin-bottom: 25px;">
-					<a style="text-decoration: none; color: inherit;" href="">
-						<div class="card flex-fill bg-section special-card">
-							<div class="card-body d-flex flex-column">
-								<center>
-									<img src="../assets/img/rklogo.png" alt="logo" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">
-								</center>
-								<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Røde Kors</h4>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-xl-4" style="margin-bottom: 25px;">
-					<a style="text-decoration: none; color: inherit;" href="">
-						<div class="card flex-fill bg-section special-card">
-							<div class="card-body d-flex flex-column">
-								<center>
-									<img src="../assets/img/add.png" alt="addicon" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">
-								</center>
-								<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>
-							</div>
-						</div>
-					</a>
-				</div> -->
-
 				<?php
 					$stmt = $pdo->prepare("SELECT * FROM stores");
 					$stmt->execute();

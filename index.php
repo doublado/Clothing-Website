@@ -60,7 +60,7 @@
                     <center>
                         <img class="img-fluid" src="assets/img/logo.png" alt="pagelogo" style="height: 200px; width: auto;" draggable="false">
 						<p style="font-size: 1.5rem; font-weight: 600; color: #00a797;">Genbrug, der aldrig går af mode</p>
-						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;">Find butik</button>
+						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;" href="stores.php">Find butikker</button>
                     </center>
                 </div>
 			</div>

@@ -17,11 +17,13 @@
     $store = $stmt->fetch();
 
     // Get general store information
+	$id = $store['id'];
     $store_name = $store['name'];
     $store_email = $store['email'];
     $store_description = $store['description'];
     $store_created = $store['created_at'];
     $storeid = $store['storeid'];
+	$ownerid = $store['ownerid']
 ?>
 
 <!DOCTYPE html>
@@ -84,44 +86,49 @@
                     $clothing = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 					if ($stmt->rowCount() > 0) {
-						if (is_loggedin()) {
+						if (is_loggedin() && $_SESSION['userid'] == $ownerid) {
 							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
-							echo '<a style="text-decoration: none; color: inherit;" href="createstore.php">';
+							echo '<a style="text-decoration: none; color: inherit;" href="createclothing.php?id=' . $id . '">';
 							echo '<div class="card flex-fill bg-section special-card">';
 							echo '<div class="card-body d-flex flex-column">';
 							echo '<center>';
 							echo '<img src="../assets/img/add.png" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
 							echo '</center>';
-							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>';
+							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj nyt produkt</h4>';
+							echo '<hr>';
+							echo '<br>';
+							echo '<br>';
 							echo '</div>';
 							echo '</div>';
 							echo '</a>';
 							echo '</div>';
 						}
-						foreach ($stores as $row) {
+						foreach ($clothing as $row) {
 							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
-                            echo '<a style="text-decoration: none; color: inherit;" href="store.php?id='.$row['id'].'">';
-                            echo '<div class="card flex-fill bg-section special-card">';
+                            echo '<a style="text-decoration: none; color: inherit;">';
+                            echo '<div class="card flex-fill bg-section">';
                             echo '<div class="card-body d-flex flex-column">';
                             echo '<center>';
-                            echo '<img src="../assets/img/stores/'.$row['image'].'" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
+                            echo '<img src="../assets/img/clothing/'.$row['image'].'" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
                             echo '</center>';
-                            echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">'.$row['name'].'</h4>';
+                            echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">'.$row['title'].'</h4>';
+							echo '<hr>';
+							echo '<p class="card-text" style="font-size: 16px; font-weight: 500; color: #fff;">Type: '.$row['type'].'<br>Pris: '.$row['price'].' kr.</p>';
                             echo '</div>';
                             echo '</div>';
                             echo '</a>';
                             echo '</div>';
 						}
 					} else {
-						if (is_loggedin()) {
+						if (is_loggedin() && $_SESSION['userid'] == $ownerid) {
 							echo '<div class="col-xl-3" style="margin-bottom: 25px;">';
-							echo '<a style="text-decoration: none; color: inherit;" href="createstore.php">';
+							echo '<a style="text-decoration: none; color: inherit;" href="createclothing.php?id=' . $id . '">';
 							echo '<div class="card flex-fill bg-section special-card">';
 							echo '<div class="card-body d-flex flex-column">';
 							echo '<center>';
 							echo '<img src="../assets/img/add.png" alt="users" style="width: 80px; height: 80px; margin-bottom: 20px;" draggable="false">';
 							echo '</center>';
-							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj din butik</h4>';
+							echo '<h4 class="card-title" style="font-size: 20px; font-weight: 700; color: #fff;">Tilføj nyt produkt</h4>';
 							echo '</div>';
 							echo '</div>';
 							echo '</a>';
