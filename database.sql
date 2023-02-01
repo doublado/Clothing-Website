@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 31. 01 2023 kl. 20:00:51
+-- Genereringstid: 01. 02 2023 kl. 12:43:39
 -- Serverversion: 10.4.20-MariaDB
 -- PHP-version: 7.3.29
 
@@ -33,12 +33,17 @@ CREATE TABLE `clothing` (
   `title` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
-  `size` varchar(255) NOT NULL,
-  `condition` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
-  `status` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `created_at` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Data dump for tabellen `clothing`
+--
+
+INSERT INTO `clothing` (`id`, `storeid`, `title`, `type`, `price`, `description`, `image`, `created_at`) VALUES
+(1, '63da1a8578515', 'test', 'T-Shirt', 100, 'test', '63da23cf44f64.png', '2023-02-01 09:33:19');
 
 -- --------------------------------------------------------
 
@@ -53,6 +58,7 @@ CREATE TABLE `stores` (
   `email` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `image` varchar(255) NOT NULL,
+  `ownerid` varchar(255) NOT NULL,
   `created_at` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -60,8 +66,8 @@ CREATE TABLE `stores` (
 -- Data dump for tabellen `stores`
 --
 
-INSERT INTO `stores` (`id`, `storeid`, `name`, `email`, `description`, `image`, `created_at`) VALUES
-(1, '63d9116729db5', 'Røde Kors', 'test@gmail.com', 'Vi sælger genbrugsvarer', '63d911672a014.png', '2023-01-31 14:02:31');
+INSERT INTO `stores` (`id`, `storeid`, `name`, `email`, `description`, `image`, `ownerid`, `created_at`) VALUES
+(1, '63da1a8578515', 'test', 'test@gmail.com', 'test', '63da1a85786bf.png', '63d910209d91d', '2023-02-01 08:53:41');
 
 -- --------------------------------------------------------
 
@@ -82,7 +88,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userid`, `username`, `password`, `created_at`) VALUES
-(1, '63d910209d91d', 'test', '$2y$10$t.QFT8eRGPgEhKs.nldeCewgEv0ENwBErnbNSTsYG5bl.Azxf7x6O', '2023-01-31 13:57:04');
+(1, '63d910209d91d', 'test', '$2y$10$t.QFT8eRGPgEhKs.nldeCewgEv0ENwBErnbNSTsYG5bl.Azxf7x6O', '2023-01-31 13:57:04'),
+(2, '63da1a9665097', 'doublado', '$2y$10$UD/WzLh/AFEMQ0dVX30cN.mrG.478j25w8spV9HW572U992Cx0ESm', '2023-02-01 08:53:58');
 
 --
 -- Begrænsninger for dumpede tabeller
@@ -116,7 +123,7 @@ ALTER TABLE `users`
 -- Tilføj AUTO_INCREMENT i tabel `clothing`
 --
 ALTER TABLE `clothing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `stores`
@@ -128,7 +135,7 @@ ALTER TABLE `stores`
 -- Tilføj AUTO_INCREMENT i tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
