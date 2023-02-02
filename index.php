@@ -15,7 +15,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Nikolaj Jakobsen">
-	<meta name="description" content="Restyled - Genbrug, der aldrig går af mode.">
+	<meta name="description" content="Restyled - Find det nye i det gamle.">
 	<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -59,7 +59,7 @@
 				<div class="col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 offset-xl-2">
                     <center>
                         <img class="img-fluid" src="assets/img/logo.png" alt="pagelogo" style="height: 200px; width: auto;" draggable="false">
-						<p style="font-size: 1.5rem; font-weight: 600; color: #00a797;">Genbrug, der aldrig går af mode</p>
+						<p style="font-size: 1.5rem; font-weight: 600; color: #00a797;">Find det nye i det gamle</p>
 						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;" href="stores.php">Find butikker</button>
                     </center>
                 </div>
