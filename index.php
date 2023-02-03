@@ -60,7 +60,7 @@
                     <center>
                         <img class="img-fluid" src="assets/img/logo.png" alt="pagelogo" style="height: 200px; width: auto;" draggable="false">
 						<p style="font-size: 1.5rem; font-weight: 600; color: #00a797;">Find det nye i det gamle</p>
-						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;" href="stores.php">Find butikker</button>
+						<button type="button" class="btn btn-primary btn-lg" style="margin-top: 20px;" onclick="window.location.href='stores.php'">Find butikker</button>
                     </center>
                 </div>
 			</div>
