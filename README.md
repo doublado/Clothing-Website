@@ -18,6 +18,6 @@ Følg disse trin for at sætte hjemmesiden op med XAMPP og HTDOCS mappen
 
 5.  Importer database filen (database.sql) eller opret tabellerne manuelt i den nye database.
 
-6.  Rediger database-konfigurationsfilen (fx "config.php") med dine databaseoplysninger.
+6.  Rediger database-konfigurationsfilen (fx "crud.php") med dine databaseoplysninger.
 
 8.  Gå til "[http://localhost/[mappenavn]](http://localhost/%5Bmappenavn%5D)" for at se hjemmesiden i action. Bemærk: Mappenavnet i URL'en skal være det samme som navnet på mappen i HTDOCS."
